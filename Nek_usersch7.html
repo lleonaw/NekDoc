@@ -1,0 +1,1307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>7 Appendix</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,index=1,2,fn-in --> 
+<meta name="src" content="Nek_users.tex"> 
+<meta name="date" content="2016-07-29 12:47:00"> 
+<link rel="stylesheet" type="text/css" href="Nek_users.css"> 
+</head><body 
+>
+   <!--l. 147--><div class="crosslinks"><p class="noindent">[<a 
+href="Nek_usersli2.html" >next</a>] [<a 
+href="Nek_usersch6.html" >prev</a>] [<a 
+href="Nek_usersch6.html#tailNek_usersch6.html" >prev-tail</a>] [<a 
+href="#tailNek_usersch7.html">tail</a>] [<a 
+href="Nek_users.html#Nek_usersch7.html" >up</a>] </p></div>
+   <h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;7</span><br /><a 
+ id="x9-680007"></a>Appendix</h2>
+   <h3 class="sectionHead"><span class="titlemark">7.1   </span> <a 
+ id="x9-690007.1"></a>Appendix A. Extensive list of parameters .rea file</h3>
+<!--l. 1--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">7.1.1   </span> <a 
+ id="x9-700007.1.1"></a>Parameters</h4>
+<!--l. 2--><p class="noindent" >This section tells nek5000
+     <ul class="itemize1">
+     <li class="itemize">If the input file reflects a 2D or 3D job (it should match the <span 
+class="ecti-1095">ldim </span>parameter in the SIZE file).
+     </li>
+     <li class="itemize">The combination of heat transfer, Stokes, Navier-Stokes, steady or unsteady to be run.
+     </li>
+     <li class="itemize">The relevant physical parameters.
+     </li>
+     <li class="itemize">The solution algorithm within nek5000 to use.
+     </li>
+     <li class="itemize">The timestep size or Courant number to use, or whether to run variable DT (<img 
+src="Nek_users305x.png" alt="dt  "  class="math" >), etc.</li></ul>
+<!--l. 10--><p class="noindent" >A .rea file starts with the following three parameters:
+     <dl class="description"><dt class="description">
+<span 
+class="ecbx-1095">NEKTON VERSION</span> </dt><dd 
+class="description">the version of nek5000
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">DIMENSIONAL RUN</span> </dt><dd 
+class="description">number of spatial dimensions (NDIM=2,3 - has to match the setting in
+     the SIZE file).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">PARAMETERS FOLLOW</span> </dt><dd 
+class="description">the number of parameters which are going to be followed in the .rea
+     file.(NPARAM)</dd></dl>
+<!--l. 16--><p class="noindent" >The latter specifies how many lines of .rea file, starting from the next line, are the parameters and have to be
+read by the program.<br 
+class="newline" />
+<!--l. 19--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">7.1.2   </span> <a 
+ id="x9-710007.1.2"></a>Available Parameters</h4>
+                                                                                         
+                                                                                         
+     <dl class="description"><dt class="description">
+<span 
+class="ecbx-1095">P001 DENSITY</span> </dt><dd 
+class="description">density for the case of constant properties (for variable density see parameter
+     <span 
+class="ecbx-1095">P030</span>).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P002 VISCOS</span> </dt><dd 
+class="description">kinematic viscosity (if <img 
+src="Nek_users306x.png" alt="&#x003C; 0 &#x2192; Re  "  class="math" >, otherwise <img 
+src="Nek_users307x.png" alt="1&#x2215;Re  "  class="math" >).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P003 BETAG</span> </dt><dd 
+class="description">if <img 
+src="Nek_users308x.png" alt="&#x003E; 0  "  class="math" >, natural convection is turned on (Boussinesq approximation). <span id="textcolor1">NOT IN
+     USE !</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P004 GTHETA</span> </dt><dd 
+class="description">model parameter for Boussinesq approximation (see parameter P003). <span id="textcolor2">NOT IN
+     USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P005 PGRADX</span> </dt><dd 
+class="description"><span id="textcolor3">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P006</span>  </dt><dd 
+class="description"><span id="textcolor4">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P007 RHOCP</span> </dt><dd 
+class="description">navier5.f: param(7) = param(1) ! rhoCP = rho <span id="textcolor5">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P008 CONDUCT</span> </dt><dd 
+class="description">conductivity for the case of constant properties (if <img 
+src="Nek_users309x.png" alt="&#x003C;  0  "  class="math" >, it defines the Peclet
+     number, see parameter P030). <br 
+class="newline" />connect2.f: if(param(8) .lt.0.0) param(8) = -1.0/param(8)<br 
+class="newline" />navier5.f: param(8) = param(2) ! conduct = dyn. visc
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P009</span>  </dt><dd 
+class="description"><span id="textcolor6">NOT IN USE!</span> (passed to CPFLD(2,3)!)<br 
+class="newline" />connect2.f: CPFLD(2,3)=PARAM(9)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P010 FINTIME</span> </dt><dd 
+class="description">if <img 
+src="Nek_users310x.png" alt="&#x003E; 0  "  class="math" >, specifies simulation end time. Otherwise, use NSTEP (P011).<br 
+class="newline" />drive2.f: FINTIM = PARAM(10)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P011 NSTEP</span> </dt><dd 
+class="description">number of time steps.<br 
+class="newline" />connect2.f: param(11) = 1.0<br 
+class="newline" />drive2.f: NSTEPS = PARAM(11)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P012 DT</span> </dt><dd 
+class="description">upper bound on time step <img 
+src="Nek_users311x.png" alt="dt  "  class="math" > (if <img 
+src="Nek_users312x.png" alt="&#x003C;  0  "  class="math" >, then <img 
+src="Nek_users313x.png" alt="dt = |P 012| "  class="math" > constant)<br 
+class="newline" />connect2.f: param(12) = 1.0<br 
+class="newline" />drive2.f: DT = abs(PARAM(12))
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P013 IOCOMM</span> </dt><dd 
+class="description">frequency of iteration histories<br 
+class="newline" />drive2.f: IOCOMM = PARAM(13)
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P014 IOTIME</span> </dt><dd 
+class="description">if <img 
+src="Nek_users314x.png" alt="&#x003E; 0  "  class="math" >, time interval to dump the fld file. Otherwise, use IOSTEP (P015).<br 
+class="newline" />drive2.f: TIMEIO = PARAM(14)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P015 IOSTEP</span> </dt><dd 
+class="description">dump frequency, number of time steps between dumps.<br 
+class="newline" />drive2.f: IOSTEP = PARAM(15)<br 
+class="newline" />navier5.f: if (iastep.eq.0) iastep=param(15) ! same as iostep
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P016 PSSOLVER</span> </dt><dd 
+class="description">heat/passive scalar solver:
+     <!--l. 58--><p class="noindent" >&#x00A0;      1: Helmholz
+     <!--l. 59--><p class="noindent" >&#x00A0;      2: CVODE
+     <!--l. 60--><p class="noindent" >&#x00A0;      3: CVODE with user-supplied Jacobian
+     <!--l. 61--><p class="noindent" >&#x00A0;      Note: a negative number will set source terms to 0.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P017 AXIS</span> </dt><dd 
+class="description"><span id="textcolor7">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P018 GRID</span> </dt><dd 
+class="description"><span id="textcolor8">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P019 INTYPE</span> </dt><dd 
+class="description"><span id="textcolor9">NOT IN USE!</span><br 
+class="newline" />connect2.f: param(19) = 0.0
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P020 NORDER</span> </dt><dd 
+class="description"><span id="textcolor10">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P021 DIVERGENCE</span> </dt><dd 
+class="description">tolerance for the pressure solver.<br 
+class="newline" />drive2.f: TOLPDF = abs(PARAM(21))<br 
+class="newline" />hmholtz.f: if (name.eq.&#8217;PRES&#8217;.and.param(21).ne.0) tol=abs(param(21))
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P022 HELMHOLTZ</span> </dt><dd 
+class="description">tolerance for the velocity solver.<br 
+class="newline" />drive2.f: TOLHDF = abs(PARAM(22))<br 
+class="newline" />hmholtz.f: if (param(22).ne.0) tol=abs(param(22))<br 
+class="newline" />hmholtz.f: if (param(22).lt.0) tol=abs(param(22))*rbn0<br 
+class="newline" />navier4.f: if (param(22).ne.0) tol = abs(param(22))
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P023 NPSCAL</span> </dt><dd 
+class="description">number of passive scalars.<br 
+class="newline" />connect2.f: NPSCAL=INT(PARAM(23))
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P024 TOLREL</span> </dt><dd 
+class="description">relative tolerance for the passive scalar solver (CVODE).<br 
+class="newline" />drive2.f: TOLREL = abs(PARAM(24))
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P025 TOLABS</span> </dt><dd 
+class="description">absolute tolerance for the passive scalar solver (CVODE).<br 
+class="newline" />drive2.f: TOLABS = abs(PARAM(25))
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P026 COURANT</span> </dt><dd 
+class="description">maximum Courant number (number of RK4 substeps if OIFS is used).<br 
+class="newline" />drive2.f: CTARG = PARAM(26)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P027 TORDER</span> </dt><dd 
+class="description">temporal discretization order (2 or 3).<br 
+class="newline" />drive2.f: NBDINP = PARAM(27)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P028 NABMSH</span> </dt><dd 
+class="description">Order of temporal integration for mesh velocity.if 1, 2, or 3 use Adams-Bashforth
+     of corresponding order. Otherwise, extrapolation of order TORDER (P027).<br 
+class="newline" />
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P029 MHD_VISCOS</span> </dt><dd 
+class="description">if <img 
+src="Nek_users315x.png" alt="&#x003E; 0 &#x2192; "  class="math" > magnetic viscosity, if <img 
+src="Nek_users316x.png" alt="&#x003C; 0 &#x2192; "  class="math" > magnetic Reynolds number.<br 
+class="newline" />connect2.f: if(param(29).lt.0.0) param(29) = -1.0/param(29)<br 
+class="newline" />connect2.f: if (param(29).ne.0.) ifmhd = .true.<br 
+class="newline" />connect2.f: cpfld(ifldmhd,1) = param(29) ! magnetic viscosity
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P030 USERVP</span> </dt><dd 
+class="description">if
+     <!--l. 91--><p class="noindent" >&#x00A0;      0: constant properties
+     <!--l. 92--><p class="noindent" >&#x00A0;      1: user-defined properties via USERVP subroutine (each scalar separately)
+     <!--l. 93--><p class="noindent" >&#x00A0;      2: user-defined properties via USERVP subroutine (all scalars at once)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P031 NPERT</span> </dt><dd 
+class="description">if <img 
+src="Nek_users317x.png" alt="&#x2044;=  0  "  class="math" >, number of perturbation modes in linearized N-S.<br 
+class="newline" />connect2.f: if (param(31).ne.0.) ifpert = .true.<br 
+class="newline" />connect2.f: if (param(31).lt.0.) ifbase = .false. ! don&#8217;t time adv base flow<br 
+class="newline" />connect2.f: npert = abs(param(31))
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P032 NBCRE2</span> </dt><dd 
+class="description">if <img 
+src="Nek_users318x.png" alt="&#x003E; 0  "  class="math" >, number of BCs in .re2 file, 0: all.<br 
+class="newline" />connect2.f: if (param(32).gt.0) nfldt = ibc + param(32)-1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P033</span>  </dt><dd 
+class="description"><span id="textcolor11">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P034</span>  </dt><dd 
+class="description"><span id="textcolor12">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P035</span>  </dt><dd 
+class="description"><span id="textcolor13">NOT IN USE!</span>
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P036 XMAGNET</span> </dt><dd 
+class="description"><span id="textcolor14">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P037 NGRIDS</span> </dt><dd 
+class="description"><span id="textcolor15">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P038 NORDER2</span> </dt><dd 
+class="description"><span id="textcolor16">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P039 NORDER3</span> </dt><dd 
+class="description"><span id="textcolor17">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P040</span>  </dt><dd 
+class="description"><span id="textcolor18">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P041</span>  </dt><dd 
+class="description">1 <img 
+src="Nek_users319x.png" alt="&#x2192; "  class="math" > multiplicative SEMG<br 
+class="newline" />hsmg.f:c if (param(41).eq.1) ifhybrid = .true. <img 
+src="Nek_users320x.png" alt="&#x2190; "  class="math" ><span id="textcolor19">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P042</span>  </dt><dd 
+class="description">linear solver for the pressure equation, 0 <img 
+src="Nek_users321x.png" alt="&#x2192; "  class="math" > GMRES or 1 <img 
+src="Nek_users322x.png" alt="&#x2192; "  class="math" > PCG
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P043</span>  </dt><dd 
+class="description">0: additive multilevel scheme - 1: original two level scheme.<br 
+class="newline" />navier6.f: if (lx1.eq.2) param(43)=1.<br 
+class="newline" />navier6.f: if (param(43).eq.0) call hsmg_setup
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P044</span>  </dt><dd 
+class="description">0=E-based additive Schwarz for PnPn-2; 1=A-based.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P045</span>  </dt><dd 
+class="description">Free-surface stability control (defaults to 1.0)<br 
+class="newline" />subs1.f: FACTOR = PARAM(45)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P046</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users323x.png" alt="&#x003E; 0  "  class="math" >, do not set Initial Condition (no call to subroutine SETICS).<br 
+class="newline" />drive2.f: irst = param(46)<br 
+class="newline" />ic.f: irst = param(46) ! for lee&#8217;s restart (rarely used)<br 
+class="newline" />subs1.f: irst = param(46)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P047</span>  </dt><dd 
+class="description">parameter for moving mesh (Poisson ratio for mesh elasticity solve (default 0.4)).<br 
+class="newline" />mvmesh.f: VNU = param(47)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P048</span>  </dt><dd 
+class="description"><span id="textcolor20">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P049</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users324x.png" alt="&#x003C; 0  "  class="math" >, mixing length factor <span id="textcolor21">NOT IN USE!</span>.<br 
+class="newline" />drive2.f:c IF (PARAM(49) .LE. 0.0) PARAM(49) = TLFAC<br 
+class="newline" />turb.f: TLFAC = PARAM(49)
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P050</span>  </dt><dd 
+class="description"><span id="textcolor22">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P051</span>  </dt><dd 
+class="description"><span id="textcolor23">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P052 HISTEP</span> </dt><dd 
+class="description">if <img 
+src="Nek_users325x.png" alt="&#x003E; 1  "  class="math" >, history points dump frequency (in number of steps).<br 
+class="newline" />prepost.f: if (param(52).ge.1) iohis=param(52)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P053</span>  </dt><dd 
+class="description"><span id="textcolor24">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P054</span>  </dt><dd 
+class="description">direction of fixed mass flowrate (1: <img 
+src="Nek_users326x.png" alt="x  "  class="math" >-, 2: <img 
+src="Nek_users327x.png" alt="y  "  class="math" >-, 3: <img 
+src="Nek_users328x.png" alt="z  "  class="math" >-direction). If 0: <img 
+src="Nek_users329x.png" alt="x  "  class="math" >-direction.<br 
+class="newline" />drive2.f: if (param(54).ne.0) icvflow = abs(param(54))<br 
+class="newline" />drive2.f: if (param(54).lt.0) iavflow = 1 ! mean velocity
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P055</span>  </dt><dd 
+class="description">volumetric flow rate for periodic case; if p54<img 
+src="Nek_users330x.png" alt="&#x003C;  0  "  class="math" >, then p55:=mean velocity.<br 
+class="newline" />drive2.f: flowrate = param(55)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P056</span>  </dt><dd 
+class="description"><span id="textcolor25">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P057</span>  </dt><dd 
+class="description"><span id="textcolor26">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P058</span>  </dt><dd 
+class="description"><span id="textcolor27">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P059</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users331x.png" alt="&#x2044;= 0  "  class="math" >, deformed elements (only relevant for FDM). !=0 <img 
+src="Nek_users332x.png" alt="&#x2192; "  class="math" > full Jac. eval. for each el.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P060</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users333x.png" alt="&#x2044;= 0  "  class="math" >, initialize velocity to 1e-10 (for steady Stokes problem).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P061</span>  </dt><dd 
+class="description"><span id="textcolor28">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P062</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users334x.png" alt="&#x003E; 0  "  class="math" >, swap bytes for output.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P063 WDSIZO</span> </dt><dd 
+class="description">real output wordsize (8: 8-byte reals, else 4-byte).<br 
+class="newline" />prepost.f: if (param(63).gt.0) wdsizo = 8 ! 64-bit .fld file
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P064</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users335x.png" alt="= 1  "  class="math" >, restart perturbation solution<br 
+class="newline" />pertsupport.f: if(param(64).ne.1) then !fresh start, param(64) is restart flag
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P065</span>  </dt><dd 
+class="description">number of IO nodes (if <img 
+src="Nek_users336x.png" alt="&#x003C; 0  "  class="math" > write in separate subdirectories).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P066</span>  </dt><dd 
+class="description">Output format: (only postx uses .rea value; other nondefault should be set in usrdat) (if
+     <img 
+src="Nek_users337x.png" alt="&#x2265;  0  "  class="math" > binary else ASCII).<br 
+class="newline" />connect2.f: param(66) = 6 ! binary is default<br 
+class="newline" />connect2.f: param(66) = 0 ! ASCII
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P067</span>  </dt><dd 
+class="description">read format (if <img 
+src="Nek_users338x.png" alt="&#x2265;  0  "  class="math" > binary else ASCII).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P068</span>  </dt><dd 
+class="description">averaging frequency in avg_all (0: every timestep).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P069</span>  </dt><dd 
+class="description"><span id="textcolor29">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P070</span>  </dt><dd 
+class="description"><span id="textcolor30">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P071</span>  </dt><dd 
+class="description"><span id="textcolor31">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P072</span>  </dt><dd 
+class="description"><span id="textcolor32">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P073</span>  </dt><dd 
+class="description"><span id="textcolor33">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P074</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users339x.png" alt="&#x003E; 0  "  class="math" > print Helmholtz solver iterations.<br 
+class="newline" />hmholtz.f: if (nid.eq.0.and.ifprint.and.param(74).ne.0) ifprinthmh=.true.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P075</span>  </dt><dd 
+class="description"><span id="textcolor34">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P076</span>  </dt><dd 
+class="description"><span id="textcolor35">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P077</span>  </dt><dd 
+class="description"><span id="textcolor36">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P078</span>  </dt><dd 
+class="description"><span id="textcolor37">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P079</span>  </dt><dd 
+class="description"><span id="textcolor38">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P080</span>  </dt><dd 
+class="description"><span id="textcolor39">NOT IN USE!</span>
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P081</span>  </dt><dd 
+class="description"><span id="textcolor40">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P082</span>  </dt><dd 
+class="description">coarse-grid dimension (2: linear). <span id="textcolor41">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P083</span>  </dt><dd 
+class="description"><span id="textcolor42">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P084</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users340x.png" alt="&#x003C; 0  "  class="math" >, force initial time step to this value.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P085</span>  </dt><dd 
+class="description">set <img 
+src="Nek_users341x.png" alt="dt  "  class="math" > in <span 
+class="ecti-1095">setdt</span>.<br 
+class="newline" />subs1.f: dt=dtopf*param(85)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P086</span>  </dt><dd 
+class="description"><span id="textcolor43">RESERVED !</span> if <img 
+src="Nek_users342x.png" alt="&#x2044;=  0  "  class="math" >, use skew-symmetric form, else convective form.<br 
+class="newline" />drive2.f: PARAM(86) = 0 ! No skew-symm. convection for now<br 
+class="newline" />navier1.f: if (param(86).ne.0.0) then ! skew-symmetric form
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P087</span>  </dt><dd 
+class="description"><span id="textcolor44">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P088</span>  </dt><dd 
+class="description"><span id="textcolor45">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P089</span>  </dt><dd 
+class="description"><span id="textcolor46">RESERVED !</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P090</span>  </dt><dd 
+class="description"><span id="textcolor47">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P091</span>  </dt><dd 
+class="description"><span id="textcolor48">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P092</span>  </dt><dd 
+class="description"><span id="textcolor49">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P093</span>  </dt><dd 
+class="description">number of previous solutions to use for residual projection.<br 
+class="newline" />(adjust MXPREF in SIZEu accordingly)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P094</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users343x.png" alt="&#x003E; 0  "  class="math" >, start projecting velocity and passive scalars after P094 steps
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P095</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users344x.png" alt="&#x003E; 0  "  class="math" >, start projecting pressure after P095 steps
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P096</span>  </dt><dd 
+class="description"><span id="textcolor50">NOT IN USE!</span>
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P097</span>  </dt><dd 
+class="description"><span id="textcolor51">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P098</span>  </dt><dd 
+class="description"><span id="textcolor52">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P099</span>  </dt><dd 
+class="description">dealiasing:
+     <!--l. 192--><p class="noindent" >&#x00A0;      <img 
+src="Nek_users345x.png" alt="&#x003C;  0  "  class="math" >: disable
+     <!--l. 193--><p class="noindent" >&#x00A0;      3: old dealiasing
+     <!--l. 194--><p class="noindent" >&#x00A0;      4: new dealiasing
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P100</span>  </dt><dd 
+class="description"><span id="textcolor53">RESERVED !</span> pressure preconditioner when using CG solver (0: Jacobi, <img 
+src="Nek_users346x.png" alt="&#x003E; 0  "  class="math" >: two-level
+     Schwarz) <span id="textcolor54">or wiseversa?</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P101</span>  </dt><dd 
+class="description">number of additional modes to filter (0: only last mode)<br 
+class="newline" />navier5.f: ncut = param(101)+1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P102</span>  </dt><dd 
+class="description"><span id="textcolor55">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P103</span>  </dt><dd 
+class="description">filter weight for last mode (<img 
+src="Nek_users347x.png" alt="&#x003C;  0  "  class="math" >: disabled)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P107</span>  </dt><dd 
+class="description">if <img 
+src="Nek_users348x.png" alt="&#x2044;= 0  "  class="math" >, add it to h2 in sethlm
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P116 NELX</span> </dt><dd 
+class="description">number of elements in x for Fast Tensor Product FTP solver (0: do not use FTP).<br 
+class="newline" />NOTE: box geometries, constant properties only!
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P117 NELY</span> </dt><dd 
+class="description">number of elements in y for FTP
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">P118 NELZ</span> </dt><dd 
+class="description">number of elements in z for FTP</dd></dl>
+<!--l. 209--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">7.1.3   </span> <a 
+ id="x9-720007.1.3"></a>Available Logical Switches</h4>
+<!--l. 210--><p class="noindent" >This part of .rea file starts with such a line:
+                                                                                         
+                                                                                         
+   <div class="verbatim" id="verbatim-50">
+n&#x00A0;&#x00A0;&#x00A0;LOGICAL&#x00A0;SWITCHES&#x00A0;FOLLOW
+</div>
+<!--l. 213--><p class="nopar" > where <img 
+src="Nek_users349x.png" alt="n  "  class="math" > is the number of logical switches which is set in the following lines.
+   <h4 class="subsectionHead"><span class="titlemark">7.1.4   </span> <a 
+ id="x9-730007.1.4"></a>Logical switches</h4>
+<!--l. 216--><p class="noindent" >Note that by default all logical switches are set to false.
+     <dl class="description"><dt class="description">
+<span 
+class="ecbx-1095">IFFLOW</span> </dt><dd 
+class="description">solve for fluid (velocity, pressure).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFHEAT</span> </dt><dd 
+class="description">solve for heat (temperature and/or scalars).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFTRAN</span> </dt><dd 
+class="description">solve transient equations (otherwise, solve the steady Stokes flow).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFADVC</span> </dt><dd 
+class="description">specify the fields with convection.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFTMSH</span> </dt><dd 
+class="description">specify the field(s) defined on T mesh (first field is the ALE mesh).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFAXIS</span> </dt><dd 
+class="description">axisymmetric formulation.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFSTRS</span> </dt><dd 
+class="description">use stress formulation in the incompressible case.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFLOMACH</span> </dt><dd 
+class="description">use low Mach number compressible flow.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFMGRID</span> </dt><dd 
+class="description">moving grid (for free surface flow).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFMVBD</span> </dt><dd 
+class="description">moving boundary (for free surface flow).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFCHAR</span> </dt><dd 
+class="description">use characteristics for convection operator.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFSYNC</span> </dt><dd 
+class="description">use mpi barriers to provide better timing information.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">IFUSERVP</span> </dt><dd 
+class="description">user-defined properties (e.g., <img 
+src="Nek_users350x.png" alt="&#x03BC;  "  class="math" >, <img 
+src="Nek_users351x.png" alt="&#x03C1;  "  class="math" >) varying with space and time.</dd></dl>
+                                                                                         
+                                                                                         
+<!--l. 150--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">7.2   </span> <a 
+ id="x9-740007.2"></a>Appendix B. Extensive list of parameters SIZE file</h3>
+     <dl class="description"><dt class="description">
+<span 
+class="ecbx-1095">ldim</span> </dt><dd 
+class="description">: number of spatial dimensions (2 or 3).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lx1, ly1, lz1</span> </dt><dd 
+class="description">: number of (GLL) points in the <img 
+src="Nek_users352x.png" alt="x  "  class="math" >, <img 
+src="Nek_users353x.png" alt="y  "  class="math" > and <img 
+src="Nek_users354x.png" alt="z  "  class="math" > directions, respectively, within
+     each element of mesh1 (velocity) which is equal to the (polynomial order<img 
+src="Nek_users355x.png" alt="+  "  class="math" >1) by definition.
+     <img 
+src="Nek_users356x.png" alt="ly1  "  class="math" > is usually the same as <img 
+src="Nek_users357x.png" alt="lx1  "  class="math" > and for 2D cases <img 
+src="Nek_users358x.png" alt="lz1 = 1  "  class="math" >. <br 
+class="newline" /><span class="footnote-mark"><a 
+href="#fn1x8" id="fn1x8-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x9-74001f1"></a>
+     <span class="footnote-mark"><a 
+href="#fn2x8" id="fn2x8-bk"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x9-74002f2"></a>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lx2, ly2, lz2</span> </dt><dd 
+class="description">: number of (GLL) points in the <img 
+src="Nek_users361x.png" alt="x  "  class="math" >, <img 
+src="Nek_users362x.png" alt="y  "  class="math" > and <img 
+src="Nek_users363x.png" alt="z  "  class="math" > directions, respectively, within each
+     element of mesh2 (pressure). Use <img 
+src="Nek_users364x.png" alt="lx2 = lx1  "  class="math" > for PN/PN formulation or <img 
+src="Nek_users365x.png" alt="lx2 = lx1- 2  "  class="math" > for
+     PN/PN-2 formulation.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lx3, ly3, lz3</span> </dt><dd 
+class="description">: number of (GLL) points in the <img 
+src="Nek_users366x.png" alt="x  "  class="math" >, <img 
+src="Nek_users367x.png" alt="y  "  class="math" > and <img 
+src="Nek_users368x.png" alt="z  "  class="math" > directions, respectively, within
+     each element of mesh3.<br 
+class="newline" /><span class="footnote-mark"><a 
+href="#fn3x8" id="fn3x8-bk"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x9-74003f3"></a>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lxd, lyd, lzd</span> </dt><dd 
+class="description">:  number  of  points  for  over  integration  (dealiasing),  use  three  half  rule  e.g.  for
+     <img 
+src="Nek_users369x.png" alt="lx1 = 8  "  class="math" > use <img 
+src="Nek_users370x.png" alt="lxd = 12  "  class="math" >.<br 
+class="newline" />
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lelx, lely, lelz</span> </dt><dd 
+class="description">: maximum number of elements per rank for global FDM (Fast Diagonalization
+     Method) solver.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">ldimt</span> </dt><dd 
+class="description">: maximum number of T-array fields (temperature + additional scalars).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lp</span> </dt><dd 
+class="description">: maximum number of ranks.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lelg</span> </dt><dd 
+class="description">: maximum (global) number of elements (it is usually set more than the # of elements existing
+     in the mesh, for making maximum use of memory is can be set to the exact number of mesh
+     elements).<br 
+class="newline" />
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lelt</span> </dt><dd 
+class="description">: maximum number of local elements for T-mesh (per rank, <img 
+src="Nek_users371x.png" alt="lelt &#x2265; lelg &#x2215;np+ 1  "  class="math" >).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lelv</span> </dt><dd 
+class="description">: maximum number of local elements for V-mesh (<img 
+src="Nek_users372x.png" alt="lelv = lelt  "  class="math" >).
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lpelv,lpelt,lpert</span>  </dt><dd 
+class="description">: Number of elements of the perturbation field, number of perturbation fields
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lpx1, lpy1, lpz1</span> </dt><dd 
+class="description">: Number of point in <img 
+src="Nek_users373x.png" alt="x  "  class="math" >,<img 
+src="Nek_users374x.png" alt="y  "  class="math" >,<img 
+src="Nek_users375x.png" alt="z  "  class="math" > direction of perturbation field within each
+     element of mesh1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lpx2, lpy2, lpz2</span> </dt><dd 
+class="description">: Number of point in <img 
+src="Nek_users376x.png" alt="x  "  class="math" >,<img 
+src="Nek_users377x.png" alt="y  "  class="math" >,<img 
+src="Nek_users378x.png" alt="z  "  class="math" > direction of perturbation field within each
+     element of mesh2
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lbelv, lbelt</span> </dt><dd 
+class="description">: Total Number of elements of the B-field (MHD)
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lbx1, lby1, lbz1</span> </dt><dd 
+class="description">: Number of point in <img 
+src="Nek_users379x.png" alt="x  "  class="math" >,<img 
+src="Nek_users380x.png" alt="y  "  class="math" >,<img 
+src="Nek_users381x.png" alt="z  "  class="math" > direction of B-field within each element of
+     mesh1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lbx2, lby2, lbz2</span> </dt><dd 
+class="description">: Number of point in <img 
+src="Nek_users382x.png" alt="x  "  class="math" >,<img 
+src="Nek_users383x.png" alt="y  "  class="math" >,<img 
+src="Nek_users384x.png" alt="z  "  class="math" > direction of B-field within each element of
+     mesh2
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lx1m, ly1m, lz1m</span> </dt><dd 
+class="description">: when the mesh is a moving type <img 
+src="Nek_users385x.png" alt="lx1m  = lx1  "  class="math" >, otherwise it is set to 1.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lxz</span> </dt><dd 
+class="description">: LXZ = LX1*LZ1<br 
+class="newline" /><span 
+class="ectt-1095">connect1.f: common /scruz/ snx(lxz) , sny(lxz) , snz(lxz) , efc(lxz)</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lorder</span> </dt><dd 
+class="description">: maximum time integration order (2 or 3).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">maxobj</span> </dt><dd 
+class="description">: maximum number of objects. <span id="textcolor56">zero if not using objects?</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">maxmbr</span> </dt><dd 
+class="description">: maximum number of members in an object.
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lhis</span> </dt><dd 
+class="description">: maximum number of history points a single rank will read in (NP*LHIS <img 
+src="Nek_users386x.png" alt="&#x003C;  "  class="math" > number of points
+     in hpts.in).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lctmp0</span> </dt><dd 
+class="description">: <span id="textcolor57">NOT IN USE!</span> <br 
+class="newline" /><span 
+class="ectt-1095">drive1.f:c COMMON /CTMP0/ DUMMY0(LCTMP0)</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lctmp1</span> </dt><dd 
+class="description">: <br 
+class="newline" /><span 
+class="ectt-1095">drive1.f:c COMMON /CTMP1/ DUMMY1(LCTMP1)</span><br 
+class="newline" /><span 
+class="ectt-1095">drive2.f: COMMON /SCRNS/ WORK(LCTMP1)</span>
+                                                                                         
+                                                                                         
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lvec</span> </dt><dd 
+class="description">: <span id="textcolor58">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">mxprev</span> </dt><dd 
+class="description">: maximum number of history entries for residual projection (recommended value: 20).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lgmres</span> </dt><dd 
+class="description">: dimension of Krylov subspace in GMRES (recommended value: 40).
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lmvec</span> </dt><dd 
+class="description">: <span id="textcolor59">NOT IN USE !</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lsvec</span> </dt><dd 
+class="description">: <span id="textcolor60">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lstore</span> </dt><dd 
+class="description">: <span id="textcolor61">NOT IN USE!</span>
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">maxmor</span> </dt><dd 
+class="description">: <img 
+src="Nek_users387x.png" alt="= lelt  "  class="math" >
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">lzl</span> </dt><dd 
+class="description">: for 2D cases <img 
+src="Nek_users388x.png" alt="lzl = 1  "  class="math" > and for 3D cases <img 
+src="Nek_users389x.png" alt="lzl = 3  "  class="math" > (computed automatically).</dd></dl>
+<!--l. 47--><p class="noindent" >The following parameters are deprecated and were subsequently removed in newer versions.
+     <dl class="description"><dt class="description">
+<span 
+class="ecbx-1095">LELGEC</span> </dt><dd 
+class="description">: LELGEC = 1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">LXYZ2</span> </dt><dd 
+class="description">: LXYZ2 = 1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">LXZ21</span> </dt><dd 
+class="description">: LXZ21 = 1
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">LMAXV</span> </dt><dd 
+class="description">: LMAXV = LX1*LY1*LZ1*LELV
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">LMAXT</span> </dt><dd 
+class="description">: LMAXT = LX1*LY1*LZ1*LELT
+     </dd><dt class="description">
+<span 
+class="ecbx-1095">LMAXP</span> </dt><dd 
+class="description">: LMAXP = LX1*LY1*LZ1*LELV</dd></dl>
+                                                                                         
+                                                                                         
+<!--l. 152--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">7.3   </span> <a 
+ id="x9-750007.3"></a>Appendix C. The fld file format</h3>
+<!--l. 1--><p class="noindent" >The fld file format is used to write and read data both in serial and parallel in Nek5000. This section
+describes the format and should allow third party tool developers to implement pre and postprocessing
+tools.
+<!--l. 5--><p class="indent" >   The file is composed of:
+     <ul class="itemize1">
+     <li class="itemize">the <span 
+class="ecti-1095">header </span>in ASCII format,
+     </li>
+     <li class="itemize">mesh data, including the geometry, saved unrolled as scalar vector fields</li></ul>
+<!--l. 13--><p class="indent" >   We will go through each of these categories and give a description of its composition.
+<!--l. 16--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">7.3.1   </span> <a 
+ id="x9-760007.3.1"></a>Header</h4>
+<!--l. 17--><p class="noindent" >The header provides structural information about the stored data that is needed to parse it correctly. The
+header is composed of 11 values in ASCII format. It has a fixed size of 132 bytes and starts with the string
+<span 
+class="ectt-1095">#std</span>. All header entries are padded to the right. After the header with 132 bytes, 4 bytes follow that
+determine the endianess of the binary file. It is the binary representation of the number <span 
+class="cmr-10x-x-109">6</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">54321 </span>either in
+little or big endian.
+<div class="center" 
+>
+<!--l. 23--><p class="noindent" >
+<div class="tabular"> <table id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"></colgroup><colgroup id="TBL-15-2g"><col 
+id="TBL-15-2"></colgroup><colgroup id="TBL-15-3g"><col 
+id="TBL-15-3"></colgroup><colgroup id="TBL-15-4g"><col 
+id="TBL-15-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-1-1"  
+class="td11"> <span 
+class="ecbx-1095">Entry </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-1-2"  
+class="td11"> <span 
+class="ecbx-1095">Padding </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-1-3"  
+class="td11">  <span 
+class="ecbx-1095">Name  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-1-4"  
+class="td11">          <span 
+class="ecbx-1095">Short Description              </span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-2-1"  
+class="td11">    1      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-2-2"  
+class="td11">     2       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-2-3"  
+class="td11">  <span 
+class="ectt-1095">wdsizo  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-2-4"  
+class="td11"> sets the precision to 4 (float) or 8 (double)  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-3-1"  
+class="td11">    2      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-3-2"  
+class="td11">     3       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-3-3"  
+class="td11">    <span 
+class="ectt-1095">nx    </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-3-4"  
+class="td11">    number of coordinates in x direction      </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-4-1"  
+class="td11"> 2 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-4-2"  
+class="td11"> 3 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-4-3"  
+class="td11"> <span 
+class="ectt-1095">ny </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-4-4"  
+class="td11"> number of coordinates in y direction</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-5-1"  
+class="td11">    2      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-5-2"  
+class="td11">     3       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-5-3"  
+class="td11">    <span 
+class="ectt-1095">nz    </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-5-4"  
+class="td11">    number of coordinates in z direction      </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-6-1"  
+class="td11"> 5 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-6-2"  
+class="td11"> 11 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-6-3"  
+class="td11"> <span 
+class="ectt-1095">nelo </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-6-4"  
+class="td11"> number of elements</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-7-1"  
+class="td11">    6      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-7-2"  
+class="td11">    11      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-7-3"  
+class="td11">  <span 
+class="ectt-1095">nelgt  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-7-4"  
+class="td11">                  &#8212;-                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-8-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-8-1"  
+class="td11">    7      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-8-2"  
+class="td11">    21      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-8-3"  
+class="td11">   <span 
+class="ectt-1095">time   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-8-4"  
+class="td11">              time stamp                      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-9-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-9-1"  
+class="td11">    8      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-9-2"  
+class="td11">    10      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-9-3"  
+class="td11">  <span 
+class="ectt-1095">iostep  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-9-4"  
+class="td11">               time step                        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-10-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-10-1"  
+class="td11">    9      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-10-2"  
+class="td11">     7       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-10-3"  
+class="td11">   <span 
+class="ectt-1095">fid0   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-10-4"  
+class="td11">                field id                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-11-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-11-1"  
+class="td11">   10     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-11-2"  
+class="td11">     7       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-11-3"  
+class="td11"> <span 
+class="ectt-1095">nfileoo </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-11-4"  
+class="td11">             number of files                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-12-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-12-1"  
+class="td11">   11     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-12-2"  
+class="td11">     4       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-12-3"  
+class="td11">  <span 
+class="ectt-1095">rdcode  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-15-12-4"  
+class="td11">             Fields written                     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-13-"><td  style="white-space:nowrap; text-align:center;" id="TBL-15-13-1"  
+class="td11">        </td></tr></table></div></div>
+<!--l. 40--><p class="noindent" >Example of a header:
+<div class="center" 
+>
+<!--l. 42--><p class="noindent" >
+<!--l. 43--><p class="noindent" ><span 
+class="ectt-1095">#std 4 6 6 1 36 36 0.1000000000000E+03 10000 0 1 XUP Ã&#382;aÃ&#346;@</span></div>
+<!--l. 46--><p class="indent" >   <span 
+class="ectt-1095">wdsize </span>sets the precision of the floating point numbers in the file. This is either 4 bytes for floats or 8
+bytes for double precision.
+<!--l. 49--><p class="indent" >   <span 
+class="ectt-1095">nx</span>, <span 
+class="ectt-1095">ny </span>and <span 
+class="ectt-1095">nz </span>set the number of coordinates in x, y and z direction for each element (polynomial
+order), respectively. <span 
+class="ectt-1095">nelo </span>sets the number of total elements on the mesh.
+                                                                                         
+                                                                                         
+<!--l. 53--><p class="indent" >   <span 
+class="ectt-1095">time </span>is the simulation time while <span 
+class="ectt-1095">iostep </span>is the time step when the file was written.
+<!--l. 55--><p class="indent" >   <span 
+class="ectt-1095">rdcode </span>determines which fields are contained in the file:
+     <ul class="itemize1">
+     <li class="itemize">X: Geometry
+     </li>
+     <li class="itemize">U: Velocity
+     </li>
+     <li class="itemize">P: Pressure
+     </li>
+     <li class="itemize">T: Temperature
+     </li>
+     <li class="itemize">S: Passive scalar</li></ul>
+<!--l. 64--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">7.3.2   </span> <a 
+ id="x9-770007.3.2"></a>Data</h4>
+<!--l. 65--><p class="noindent" >The data field begins after the first 136 bytes of the file. The values are stored unrolled for
+each element and for each direction. Example code for reading the geometry field in python:
+<!--l. 68-->
+   <div class="lstlisting" id="listing-10"><span class="label"><a 
+ id="x9-77001r1"></a></span><span 
+class="ectt-0900">for</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">iel</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">in</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">range</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nelo</span><span 
+class="ectt-0900">):</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77002r2"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">x</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">ifilebuf</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">read</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nxyzo8</span><span 
+class="ectt-0900">*</span><span 
+class="ectt-0900">wdsizo</span><span 
+class="ectt-0900">)</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77003r3"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">xup</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">numpy</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">array</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">struct</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">unpack</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nxyzo8</span><span 
+class="ectt-0900">*</span><span 
+class="ectt-0900">c</span><span 
+class="ectt-0900">,</span><span 
+class="ectt-0900">x</span><span 
+class="ectt-0900">),</span><span 
+class="ectt-0900">dtype</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">c</span><span 
+class="ectt-0900">)</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77004r4"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">xfield</span><span 
+class="ectt-0900">[</span><span 
+class="ectt-0900">iel</span><span 
+class="ectt-0900">,:]=</span><span 
+class="ectt-0900">xup</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77005r5"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">y</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">ifilebuf</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">read</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nxyzo8</span><span 
+class="ectt-0900">*</span><span 
+class="ectt-0900">wdsizo</span><span 
+class="ectt-0900">)</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77006r6"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">yup</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">numpy</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">array</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">struct</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">unpack</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nxyzo8</span><span 
+class="ectt-0900">*</span><span 
+class="ectt-0900">c</span><span 
+class="ectt-0900">,</span><span 
+class="ectt-0900">y</span><span 
+class="ectt-0900">),</span><span 
+class="ectt-0900">dtype</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">c</span><span 
+class="ectt-0900">)</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77007r7"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">yfield</span><span 
+class="ectt-0900">[</span><span 
+class="ectt-0900">iel</span><span 
+class="ectt-0900">,:]=</span><span 
+class="ectt-0900">yup</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77008r8"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">if</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">if3d</span><span 
+class="ectt-0900">:</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77009r9"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">z</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">ifilebuf</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">read</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nxyzo8</span><span 
+class="ectt-0900">*</span><span 
+class="ectt-0900">wdsizo</span><span 
+class="ectt-0900">)</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77010r10"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">zup</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">numpy</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">array</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">struct</span><span 
+class="ectt-0900">.</span><span 
+class="ectt-0900">unpack</span><span 
+class="ectt-0900">(</span><span 
+class="ectt-0900">nxyzo8</span><span 
+class="ectt-0900">*</span><span 
+class="ectt-0900">c</span><span 
+class="ectt-0900">,</span><span 
+class="ectt-0900">z</span><span 
+class="ectt-0900">),</span><span 
+class="ectt-0900">dtype</span><span 
+class="ectt-0900">=</span><span 
+class="ectt-0900">c</span><span 
+class="ectt-0900">)</span><span 
+class="ectt-0900">&#x00A0;</span><br /><span class="label"><a 
+ id="x9-77011r11"></a></span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">&#x00A0;</span><span 
+class="ectt-0900">zfield</span><span 
+class="ectt-0900">[</span><span 
+class="ectt-0900">iel</span><span 
+class="ectt-0900">,:]=</span><span 
+class="ectt-0900">zup</span>
+   
+   </div>
+                                                                                         
+                                                                                         
+   <div class="footnotes"><!--l. 6--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x8-bk" id="fn1x8"><sup class="textsuperscript">1</sup></a></span><span 
+class="ecrm-0900">is</span> <img 
+src="Nek_users359x.png" alt="lx1&#x2044;= ly1  "  class="math" > <span 
+class="ecrm-0900">supported?</span>
+<!--l. 7--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn2x8-bk" id="fn2x8"><sup class="textsuperscript">2</sup></a></span><img 
+src="Nek_users360x.png" alt="lx1  "  class="math" > <span 
+class="ecrm-0900">recomeneded odd for better performance</span>
+<!--l. 10--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn3x8-bk" id="fn3x8"><sup class="textsuperscript">3</sup></a></span><span 
+class="ecrm-0900">mesh3 is rarely used</span>                                                                                                                        </div>
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="Nek_usersli2.html" >next</a>] [<a 
+href="Nek_usersch6.html" >prev</a>] [<a 
+href="Nek_usersch6.html#tailNek_usersch6.html" >prev-tail</a>] [<a 
+href="Nek_usersch7.html" >front</a>] [<a 
+href="Nek_users.html#Nek_usersch7.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailNek_usersch7.html"></a>    
+</body></html> 
